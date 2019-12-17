@@ -5,14 +5,12 @@ I am a big fan of many spacy tools, but I needed a way to match phrases using a 
 
 
 ## Usage
-1. You can simply copy the functions and paste them in your pipeline
-2. Clone this repo and follow the steps presented in the jupyter notebook. 
+1. Copy the functions and integrate them in your pipeline as you are used to do it in Spacy
+2. Clone this repo, add your data to the 'match_lists' folder and follow the steps presented in the jupyter notebook. 
 
 ## Installation
   
-Clone the repo and run setup.py 
-
- ```python
+```python
 git clone https://github.com/jackmen/fuzzy_spacy.git
 cd /your_path/fuzzy_spacy/
 pip3 install -r requirements.txt 
@@ -20,4 +18,4 @@ pip3 install -r requirements.txt
 
 ## Comment
 
-The code execution is not fast, but was sufficient for my use-case to annotate documents for model training.  
+The code execution is not fast, but was sufficient for my use-case to annotate documents to train a NER model.  
