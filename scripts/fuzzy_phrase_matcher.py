@@ -1,18 +1,23 @@
+import spacy
 from spacy.matcher import PhraseMatcher
 from spacy.tokens import Span
-from scripts.utils import
+
+nlp = spacy.blank('en')
 
 
-class HospitalMatcher(object):
-    name = "hospital_fuzzy_tagger"
+class PhuzzyMatcher(object):
+    name = "phuzzy_matcher"
 
-    def __init__(self, nlp, label):
-        self.label = label
+    def __init__(self, nlp, set, fuzzy_matcher, match, label):
         self.nlp = nlp
+        self.set = set
+        self.fuzzy_matcher = fuzzy_matcher
+        self.match = match
+        self.label = label
 
     def __call__(self, doc):
         match_list = []
-        results = findfeatures(hospital_set, doc.text.lower(), match=80)
+        results = self.fuzzy_matcher(self.set, doc.text.lower(), self.match)
         for i in results:
             match_list.append(str(i[0].lstrip()))
         patterns = [nlp.make_doc(text) for text in match_list]  # noqa: F821
