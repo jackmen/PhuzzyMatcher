@@ -14,9 +14,9 @@ stop_words.add(")")
 
 def fuzzy_matcher(features, document, match=None):
     matches = []
+    tokens = nltk.word_tokenize(document)
     for feature in features:
         feature_length = len(feature.split(" "))
-        tokens = nltk.word_tokenize(document)
         for i in range(len(tokens) - feature_length + 1):
             matched_phrase = ""
             j = 0
@@ -33,10 +33,10 @@ def fuzzy_matcher(features, document, match=None):
 
 def fuzzy_matcher_stopwords(features, document, match=None):
     matches = []
+    tokens = nltk.word_tokenize(document)
+    tokens_no_stop = [w for w in tokens not in stop_words]
     for feature in features:
         feature_length = len(feature.split(" "))
-        tokens = nltk.word_tokenize(document)
-        tokens_no_stop = [w for w in tokens not in stop_words]
         for i in range(len(tokens_no_stop) - feature_length + 1):
             matched_phrase = ""
             j = 0
