@@ -8,16 +8,21 @@ nlp = spacy.blank('en')
 class PhuzzyMatcher(object):
     name = "phuzzy_matcher"
 
-    def __init__(self, nlp, set, fuzzy_matcher, match, label):
+    def __init__(self, nlp, set, fuzzy_matcher, match, label, stop_words = None):
         self.nlp = nlp
         self.set = set
         self.fuzzy_matcher = fuzzy_matcher
+        self.fuzzy_matcher_stopwords = fuzzy_matcher
         self.match = match
         self.label = label
+        self.stop_words = stop_words
 
     def __call__(self, doc):
         match_list = []
-        results = self.fuzzy_matcher(self.set, doc.text.lower(), self.match)
+        if self.stop_words:
+            results = self.fuzzy_matcher_stopwords(self.set, doc.text.lower(), self.match, self.stop_words)
+        else:
+            results = self.fuzzy_matcher(self.set, doc.text.lower(), self.match)
         for i in results:
             match_list.append(str(i[0].lstrip()))
         patterns = [nlp.make_doc(text) for text in match_list]  # noqa: F821
