@@ -2,14 +2,7 @@ import nltk
 from nltk.corpus import stopwords
 import re
 from fuzzywuzzy import fuzz
-nltk.download('stopwords')
 
-stop_words = set(stopwords.words('english'))
-stop_words.add(".")
-stop_words.add(",")
-stop_words.add("!")
-stop_words.add("(")
-stop_words.add(")")
 
 
 def fuzzy_matcher(features, document, match=None):
@@ -31,10 +24,10 @@ def fuzzy_matcher(features, document, match=None):
     return matches
 
 
-def fuzzy_matcher_stopwords(features, document, match=None):
+def fuzzy_matcher_stopwords(features, document, match=None, stop_words=None):
     matches = []
     tokens = nltk.word_tokenize(document)
-    tokens_no_stop = [w for w in tokens not in stop_words]
+    tokens_no_stop = [w for w in tokens if w not in stop_words]
     for feature in features:
         feature_length = len(feature.split(" "))
         for i in range(len(tokens_no_stop) - feature_length + 1):
