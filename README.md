@@ -6,13 +6,32 @@ I needed a way to match phrases using a fuzzy approach to prepare an annotated d
 
 ## Installation
 
-Create a virtual environment and do the following:
-  
+Clone the repo:
+
 ```python
 git clone https://github.com/jackmen/fuzzy_spacy.git
-cd /your_path/fuzzy_spacy/
-pip3 install -r requirements.txt 
 ```
+
+Create a virtual environment and activate:
+
+```python
+python3 -m venv your_env_name
+cd your_env_name
+source bin/activate
+```
+
+Install requiremets:
+  
+```python
+cd /your_path/fuzzy_spacy/
+pip3 install -r requirements.txt
+```
+Run jupyter notebook
+
+```python
+jupyter notebook
+```
+
 
 ## Usage
 Follow the steps presented in the jupyter notebook. 
