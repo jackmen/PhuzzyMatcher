@@ -1,4 +1,4 @@
-# fuzzy_spacy
+# PhuzzyMatcher
 ### Combination of the FuzzyWuzzy library with Spacy PhraseMatcher
 
 I needed a way to match phrases using a fuzzy approach to prepare an annotated dataset to train a model. After searching in forums etc., I realized that I was not the only one looking for this to work, so I share my solution here. 
