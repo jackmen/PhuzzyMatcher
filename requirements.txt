@@ -42,7 +42,7 @@ preshed==3.0.2
 prometheus-client==0.7.1
 prompt-toolkit==2.0.10
 ptyprocess==0.6.0
-Pygments==2.7.4
+Pygments==2.15.0
 pyrsistent==0.15.6
 python-dateutil==2.8.1
 pytz==2019.3
